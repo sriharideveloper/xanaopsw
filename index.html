@@ -135,6 +135,15 @@
           <li><a href="#crew">Crew</a></li>
         </ul>
         <div class="nav-status"><span class="blink-dot"></span> LIVE</div>
+        <button
+          class="nav-hamburger"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
 
@@ -283,11 +292,7 @@
 
         <!-- Orbital image nodes -->
         <div class="orb-nodes">
-          <button
-            class="orb-node active"
-            data-index="0"
-            style="--angle: 0deg"
-          >
+          <button class="orb-node active" data-index="0" style="--angle: 0deg">
             <img
               src="https://iili.io/qoOhZrB.md.png"
               alt="Prometheus Dashboard"
@@ -1033,8 +1038,8 @@
           <div class="share-cta-label">SPREAD THE SIGNAL</div>
           <h2 class="share-cta-title">KNOW SOMEONE WHO'D BUILD WITH THIS?</h2>
           <p class="share-cta-desc">
-            Drop them the link. If they're into local AI, OSINT, or just building
-            cool stuff that doesn't phone home — they'll get it.
+            Drop them the link. If they're into local AI, OSINT, or just
+            building cool stuff that doesn't phone home — they'll get it.
           </p>
           <div class="share-btn-row">
             <a
@@ -1049,7 +1054,18 @@
               class="share-btn share-btn--linkedin"
               >Share on LinkedIn</a
             >
-            <button class="share-btn share-btn--copy" onclick="navigator.clipboard.writeText('https://xanaopsw.vercel.app').then(function(){this.textContent='Copied!'}.bind(this))">
+            <button
+              class="share-btn share-btn--copy"
+              onclick="
+                navigator.clipboard
+                  .writeText('https://xanaopsw.vercel.app')
+                  .then(
+                    function () {
+                      this.textContent = 'Copied!';
+                    }.bind(this),
+                  )
+              "
+            >
               Copy Link
             </button>
           </div>

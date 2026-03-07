@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ]
+  ],
+  "analytics": {
+    "id": "prj_xanaopsw"
+  }
 }

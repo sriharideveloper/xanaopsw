@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#333"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+
+  <!-- Yellow accent bar top -->
+  <rect x="0" y="0" width="1200" height="6" fill="#ffe500"/>
+
+  <!-- Side panel -->
+  <rect x="1080" y="0" width="120" height="630" fill="#0a0a0a" stroke="#ffe500" stroke-width="3"/>
+  <text x="1140" y="400" text-anchor="middle" transform="rotate(-90, 1140, 315)" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="18" letter-spacing="8" fill="#ffe500">PROMETHEUS</text>
+
+  <!-- Color blocks in side panel -->
+  <rect x="1105" y="520" width="24" height="24" fill="#ffe500"/>
+  <rect x="1135" y="520" width="24" height="24" fill="#c8ff00"/>
+  <rect x="1105" y="550" width="24" height="24" fill="#ff2d2d"/>
+  <rect x="1135" y="550" width="24" height="24" fill="#0a0a0a" stroke="#ffe500" stroke-width="2"/>
+
+  <!-- Version label -->
+  <text x="1140" y="610" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">v1.0 · MIT</text>
+
+  <!-- Main content -->
+  <text x="80" y="120" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="14" letter-spacing="4" fill="#ffe500">PERSONAL INTELLIGENCE PLATFORM</text>
+
+  <!-- Big title -->
+  <text x="80" y="260" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="160" fill="none" stroke="#f5f0e8" stroke-width="2">XANA</text>
+  <text x="720" y="260" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="160" fill="#ffe500">OS</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="310" font-family="monospace" font-size="20" fill="#888">3D Globe · AI Memory · OSINT · Threat Analysis · All Local</text>
+
+  <!-- Description -->
+  <text x="80" y="390" font-family="monospace" font-size="16" fill="#f5f0e8">Self-hosted intelligence dashboard. Real aircraft, ships,</text>
+  <text x="80" y="415" font-family="monospace" font-size="16" fill="#f5f0e8">satellites, cyber feeds, and an AI that remembers.</text>
+  <text x="80" y="440" font-family="monospace" font-size="16" fill="#ffe500">All local. All free. Zero cloud.</text>
+
+  <!-- Pills -->
+  <rect x="80" y="480" width="120" height="32" rx="0" fill="none" stroke="#ffe500" stroke-width="2"/>
+  <text x="140" y="501" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe500">8 MODULES</text>
+
+  <rect x="220" y="480" width="130" height="32" rx="0" fill="none" stroke="#c8ff00" stroke-width="2"/>
+  <text x="285" y="501" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#c8ff00">FULLY OFFLINE</text>
+
+  <rect x="370" y="480" width="140" height="32" rx="0" fill="none" stroke="#ff2d2d" stroke-width="2"/>
+  <text x="440" y="501" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff2d2d">ZERO API KEYS</text>
+
+  <rect x="530" y="480" width="140" height="32" rx="0" fill="none" stroke="#f5f0e8" stroke-width="2"/>
+  <text x="600" y="501" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#f5f0e8">OPEN SOURCE</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="570" width="1200" height="60" fill="#ffe500"/>
+  <text x="80" y="607" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="24" fill="#0a0a0a">github.com/sriharideveloper/xanaops</text>
+  <text x="900" y="607" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="24" fill="#0a0a0a">CLONE &amp; DEPLOY</text>
+</svg>

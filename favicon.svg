@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0a0a0a"/>
+  <rect x="16" y="16" width="480" height="480" rx="48" fill="#0a0a0a" stroke="#ffe500" stroke-width="12"/>
+  <text x="256" y="340" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="360" fill="#ffe500">X</text>
+  <rect x="16" y="432" width="480" height="64" rx="0" fill="#ffe500"/>
+  <text x="256" y="480" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="40" fill="#0a0a0a">XANA OS</text>
+</svg>

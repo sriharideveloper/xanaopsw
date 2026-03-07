@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XANA OS — PROMETHEUS</title>
+    <meta
+      name="description"
+      content="Self-hosted intelligence dashboard. Real aircraft, ships, satellites, cyber feeds, and an AI that remembers your conversations. All local. All free. Zero cloud."
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+      <div class="ticker-inner" id="ticker"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-inner">
+        <a href="#" class="nav-brand">XANA OS</a>
+        <ul class="nav-links">
+          <li><a href="#what">System</a></li>
+          <li><a href="#how">Architecture</a></li>
+          <li><a href="#install">Deploy</a></li>
+          <li><a href="#modules">Modules</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#commands">Commands</a></li>
+          <li><a href="#crew">Crew</a></li>
+        </ul>
+        <div class="nav-status"><span class="blink-dot"></span> LIVE</div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header>
+      <div class="hero-bg-block"></div>
+      <div class="hero-accent-stripe"></div>
+      <div class="wrap">
+        <span class="hero-eyebrow">Personal Intelligence Platform</span>
+        <div class="hero-title-wrap">
+          <h1>
+            <span class="stroke">XANA</span>
+            <span class="fill"><span class="yellow-block">OS</span></span>
+          </h1>
+        </div>
+        <div class="hero-sub">
+          Prometheus &middot; 3D Globe &middot; AI Memory &middot; OSINT
+          &middot; Threat Analysis
+        </div>
+        <div class="hero-desc reveal">
+          Self-hosted intelligence dashboard. Real aircraft, ships, satellites,
+          cyber feeds, and an AI that actually
+          <strong>remembers your conversations</strong>. All local. All free.
+          Zero cloud.
+        </div>
+
+        <div class="pill-row reveal">
+          <span class="pill">Real Aircraft</span>
+          <span class="pill">Live Vessels</span>
+          <span class="pill">Satellite Tracking</span>
+          <span class="pill">Memory-Linked AI</span>
+          <span class="pill">OSINT Center</span>
+          <span class="pill">Autonomous Recon</span>
+          <span class="pill">Zero API Keys</span>
+          <span class="pill">Fully Offline</span>
+          <span class="pill">ChromaDB</span>
+        </div>
+
+        <div class="btn-row reveal">
+          <a
+            href="https://github.com/sriharideveloper/xanaops"
+            class="btn btn-primary"
+            >Clone &amp; Deploy</a
+          >
+          <a href="#install" class="btn btn-secondary">Quick Start</a>
+        </div>
+
+        <div class="stats-row reveal">
+          <div class="stat-box">
+            <span class="stat-num" data-target="8">0</span>
+            <div class="stat-label">Active Modules</div>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="42814" data-format="k">0</span>
+            <div class="stat-label">Memory Vectors</div>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="10">0</span>
+            <div class="stat-label">Live Data Sources</div>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">ZERO</span>
+            <div class="stat-label">API Keys Needed</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- WHAT -->
+    <section id="what">
+      <div class="wrap">
+        <div class="section-tag reveal">System Overview</div>
+        <div class="two-col">
+          <div class="reveal-left">
+            <h2>YOUR OWN OPS ROOM</h2>
+            <p>
+              XANA OS is a self-hosted, fully offline-capable intelligence
+              dashboard. Think of it as your personal ops room — real aircraft
+              overhead, ships at sea, satellites in orbit, global news, cyber
+              threat feeds, and an AI that actually remembers your
+              conversations.
+            </p>
+            <p>
+              The AI memory system is the weird part. It doesn't fine-tune any
+              model on your data. Instead, when you ask something, it pulls the
+              most relevant chunks from your conversation history and drops them
+              right into the prompt. The model reasons over your actual past.
+            </p>
+            <p class="highlight-box">
+              No GPU. No API keys. No data leaves your machine. Swap models in
+              one line.
+            </p>
+          </div>
+          <div class="reveal">
+            <div class="terminal-box">
+              <div class="terminal-top">
+                <div class="t-dot r"></div>
+                <div class="t-dot y"></div>
+                <div class="t-dot g"></div>
+                <div class="t-title">XANA-ORACLE &middot; ACTIVE</div>
+              </div>
+              <div class="terminal-inner" id="terminal-body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="wrap">
+        <div class="section-tag reveal">Retrieval Architecture</div>
+        <h2 class="reveal">HOW THE<br />MEMORY WORKS</h2>
+        <p class="reveal" style="max-width: 560px; margin-bottom: 3rem">
+          No training. No fine-tuning. No black box. Just retrieval — fast,
+          transparent, and yours to inspect.
+        </p>
+        <div class="flow-list reveal">
+          <div class="flow-item">
+            <div class="flow-num">01</div>
+            <div>
+              <div class="flow-name">Your Question</div>
+              <p class="flow-desc">
+                You ask something. Could be vague, technical, investigative —
+                doesn't matter.
+              </p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">02</div>
+            <div>
+              <div class="flow-name">Vector Search &middot; ChromaDB</div>
+              <p class="flow-desc">
+                Your question is embedded and compared against tens of thousands
+                of semantic vectors from your conversation history.
+              </p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">03</div>
+            <div>
+              <div class="flow-name">Prompt Assembly</div>
+              <p class="flow-desc">
+                System prompt + memory chunks + recent history + your question —
+                all assembled into one rich context block.
+              </p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">04</div>
+            <div>
+              <div class="flow-name">Local LLM &middot; Ollama</div>
+              <p class="flow-desc">
+                The model reasons over your data. Entirely on your machine.
+                Never uploaded anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section id="install">
+      <div class="wrap">
+        <div class="section-tag reveal">Deployment</div>
+        <h2 class="reveal">GETTING<br />IT RUNNING</h2>
+        <p class="reveal" style="margin-bottom: 3rem">
+          Two dependencies. Three commands. Done.
+        </p>
+        <div class="install-steps">
+          <div class="install-step reveal">
+            <div class="step-num-big">01</div>
+            <div>
+              <h3>Prerequisites</h3>
+              <p>
+                Python 3.10+ and <strong>Ollama</strong> — the local LLM
+                runtime. Grab it at
+                <code
+                  style="
+                    font-family: var(--font-mono);
+                    background: var(--yellow);
+                    padding: 0 4px;
+                    border: 2px solid var(--black);
+                  "
+                  >ollama.com</code
+                >
+                and pull a model.
+              </p>
+              <div class="code-box">
+                <div class="code-label-tag">BASH</div>
+                <pre><span class="kw">ollama</span> pull llama3.2    <span class="cm"># default · ~4 GB · runs on any modern CPU</span>
+<span class="kw">ollama</span> pull mistral    <span class="cm"># alternative</span>
+<span class="kw">ollama</span> pull qwen2.5     <span class="cm"># lighter option</span></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="install-step reveal">
+            <div class="step-num-big">02</div>
+            <div>
+              <h3>Clone the Repo</h3>
+              <div class="code-box">
+                <div class="code-label-tag">BASH</div>
+                <pre><span class="kw">git</span> clone https://github.com/sriharideveloper/xanaops.git
+<span class="kw">cd</span> xana-os</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="install-step reveal">
+            <div class="step-num-big">03</div>
+            <div>
+              <h3>One-Line Launch</h3>
+              <div class="code-box">
+                <div class="code-label-tag">BASH</div>
+                <pre><span class="nm">./setup.sh</span>    <span class="cm"># creates venv, installs deps, checks Ollama</span>
+<span class="nm">./start.sh</span>    <span class="cm"># launches at localhost:8501</span></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="install-step reveal">
+            <div class="step-num-big">04</div>
+            <div>
+              <h3>
+                Build Memory DB
+                <span style="font-size: 0.9rem; opacity: 0.5"
+                  >(Optional · Highly Recommended)</span
+                >
+              </h3>
+              <p>
+                Export your ChatGPT conversations and run the pipeline to unlock
+                ORACLE, CHRONOS, NEURAL MAP, and DOSSIER.
+              </p>
+              <div class="code-box">
+                <div class="code-label-tag">PIPELINE</div>
+                <pre><span class="cm"># 1. ChatGPT → Settings → Data Controls → Export Data</span>
+<span class="cm"># 2. Drop conversations-*.json in project root, then:</span>
+
+<span class="kw">python</span> legacy/parse_chats.py    <span class="cm"># → master_chats.csv</span>
+<span class="kw">python</span> legacy/1_prep_data.py    <span class="cm"># → paired_chats.csv</span>
+<span class="kw">python</span> legacy/build-brain.py   <span class="cm"># → xana_memory_db/</span>
+
+<span class="nm">./start.sh</span>                      <span class="cm"># restart — all memory modules online</span></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULES -->
+    <section id="modules">
+      <div class="wrap">
+        <div class="section-tag reveal">Operational Modules</div>
+        <h2 class="reveal">WHAT'S<br />INSIDE</h2>
+        <p class="reveal" style="margin-bottom: 2.5rem; max-width: 560px">
+          Eight modules. Half run immediately. The rest unlock once you've built
+          the memory database.
+        </p>
+        <div class="modules-grid reveal">
+          <div class="module-card">
+            <div class="mod-num">01</div>
+            <div class="module-label">MOD-01</div>
+            <div class="module-name">GLOBE</div>
+            <p class="module-desc">
+              3D live globe — real aircraft, vessel positions, satellite orbits,
+              threat overlays. pydeck-powered.
+            </p>
+            <span class="mod-badge badge-free">No DB Required</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">02</div>
+            <div class="module-label">MOD-02</div>
+            <div class="module-name">ORACLE</div>
+            <p class="module-desc">
+              Memory-linked AI chat grounded in your actual conversation
+              history. Agentic commands for recon, search, weather, ops.
+            </p>
+            <span class="mod-badge badge-db">Requires DB</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">03</div>
+            <div class="module-label">MOD-03</div>
+            <div class="module-name">PHANTOM</div>
+            <p class="module-desc">
+              Autonomous multi-source investigation. Feed a target, watch it
+              sweep OSINT sources, cross-reference memory, build entity graphs.
+            </p>
+            <span class="mod-badge badge-db">Requires DB</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">04</div>
+            <div class="module-label">MOD-04</div>
+            <div class="module-name">OSINT</div>
+            <p class="module-desc">
+              Live intelligence center — world news, CISA exploit feeds,
+              IP/domain recon, crypto markets, weather. All free.
+            </p>
+            <span class="mod-badge badge-free">No DB Required</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">05</div>
+            <div class="module-label">MOD-05</div>
+            <div class="module-name">ARCHIVE</div>
+            <p class="module-desc">
+              Raw semantic vector search across your entire conversation
+              history. Find anything in milliseconds.
+            </p>
+            <span class="mod-badge badge-db">Requires DB</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">06</div>
+            <div class="module-label">MOD-06</div>
+            <div class="module-name">NEURAL MAP</div>
+            <p class="module-desc">
+              3D semantic topology visualization. Your conversation history as
+              clusters and constellations in 3D space.
+            </p>
+            <span class="mod-badge badge-db">Requires DB</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">07</div>
+            <div class="module-label">MOD-07</div>
+            <div class="module-name">DOSSIER</div>
+            <p class="module-desc">
+              AI-generated intelligence profiles synthesized from memory. Entity
+              analysis, pattern extraction, structured reports.
+            </p>
+            <span class="mod-badge badge-db">Requires DB</span>
+          </div>
+          <div class="module-card">
+            <div class="mod-num">08</div>
+            <div class="module-label">MOD-08</div>
+            <div class="module-name">CHRONOS</div>
+            <p class="module-desc">
+              Temporal pattern analysis. Discover how your interests and
+              thinking have evolved over time.
+            </p>
+            <span class="mod-badge badge-db">Requires DB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack">
+      <div class="wrap">
+        <div class="section-tag reveal">Technical Stack</div>
+        <h2 class="reveal">WHAT IT'S<br />BUILT ON</h2>
+        <p class="reveal" style="margin-bottom: 2.5rem">
+          Every component is open-source. Nothing proprietary.
+        </p>
+        <div class="stack-grid reveal">
+          <div class="stack-card">
+            <span class="stack-icon-big">⬡</span>
+            <div class="stack-cat">Web Framework</div>
+            <div class="stack-name">Streamlit</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">◈</span>
+            <div class="stack-cat">Local LLM</div>
+            <div class="stack-name">Ollama</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">⊛</span>
+            <div class="stack-cat">Vector Memory</div>
+            <div class="stack-name">ChromaDB</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">≋</span>
+            <div class="stack-cat">Embeddings</div>
+            <div class="stack-name">MiniLM-L6</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">◉</span>
+            <div class="stack-cat">3D Globe</div>
+            <div class="stack-name">pydeck</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">⊞</span>
+            <div class="stack-cat">Charts</div>
+            <div class="stack-name">Plotly</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">△</span>
+            <div class="stack-cat">Graph Analysis</div>
+            <div class="stack-name">NetworkX</div>
+          </div>
+          <div class="stack-card">
+            <span class="stack-icon-big">⊕</span>
+            <div class="stack-cat">Orbital Math</div>
+            <div class="stack-name">CelesTrak</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIERS -->
+    <section>
+      <div class="wrap">
+        <div class="section-tag reveal">Performance Tiers</div>
+        <h2 class="reveal">TUNE IT FOR<br />YOUR HARDWARE</h2>
+        <p class="reveal" style="margin-bottom: 2.5rem; max-width: 560px">
+          Runs on anything from a dusty laptop to a GPU rig.
+        </p>
+        <div class="tiers-grid reveal">
+          <div class="tier-card">
+            <span class="tier-emoji">&#x1F954;</span>
+            <div class="tier-name">POTATO</div>
+            <div class="tier-hw">
+              Old laptop &middot; CPU-only &middot; &lt;8GB RAM
+            </div>
+            <div class="tier-specs">
+              <div>
+                <span class="tier-k">model</span>
+                <span class="tier-v">llama3.2:1b</span>
+              </div>
+              <div>
+                <span class="tier-k">memory</span>
+                <span class="tier-v">n=3 chunks</span>
+              </div>
+              <div>
+                <span class="tier-k">history</span>
+                <span class="tier-v">2 turns</span>
+              </div>
+              <div>
+                <span class="tier-k">context</span>
+                <span class="tier-v">1500 chars</span>
+              </div>
+            </div>
+          </div>
+          <div class="tier-card">
+            <span class="tier-emoji">&#x26A1;</span>
+            <div class="tier-name">MID-RANGE</div>
+            <div class="tier-hw">
+              Modern CPU &middot; 8-16GB &middot; Default
+            </div>
+            <div class="tier-specs" style="color: var(--white)">
+              <div>
+                <span class="tier-k">model</span>
+                <span class="tier-v">llama3.2</span>
+              </div>
+              <div>
+                <span class="tier-k">memory</span>
+                <span class="tier-v">n=5 chunks</span>
+              </div>
+              <div>
+                <span class="tier-k">history</span>
+                <span class="tier-v">4 turns</span>
+              </div>
+              <div>
+                <span class="tier-k">context</span>
+                <span class="tier-v">4000 chars</span>
+              </div>
+            </div>
+          </div>
+          <div class="tier-card">
+            <span class="tier-emoji">&#x1F525;</span>
+            <div class="tier-name">BEAST</div>
+            <div class="tier-hw">GPU &middot; 16GB+ VRAM</div>
+            <div class="tier-specs">
+              <div>
+                <span class="tier-k">model</span>
+                <span class="tier-v">llama3.1:8b+</span>
+              </div>
+              <div>
+                <span class="tier-k">memory</span>
+                <span class="tier-v">n=10 chunks</span>
+              </div>
+              <div>
+                <span class="tier-k">history</span>
+                <span class="tier-v">8 turns</span>
+              </div>
+              <div>
+                <span class="tier-k">context</span>
+                <span class="tier-v">8000 chars</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMANDS -->
+    <section id="commands">
+      <div class="wrap">
+        <div class="section-tag reveal">Oracle Commands</div>
+        <h2 class="reveal">WHAT YOU<br />CAN SAY</h2>
+        <p class="reveal" style="margin-bottom: 2.5rem">
+          Type directly in ORACLE. No button clicking.
+        </p>
+        <div class="cmd-grid reveal">
+          <div class="cmd-card">
+            <div class="cmd-code">play [song] on youtube</div>
+            <p class="cmd-desc">Opens YouTube search</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">google [query]</div>
+            <p class="cmd-desc">Direct Google search</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">open [app]</div>
+            <p class="cmd-desc">Launch local app</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">weather [city]</div>
+            <p class="cmd-desc">Live from Open-Meteo</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">ip [address]</div>
+            <p class="cmd-desc">IP geolocation &amp; risk</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">lookup [domain]</div>
+            <p class="cmd-desc">Domain recon sweep</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">phantom [target]</div>
+            <p class="cmd-desc">Full investigation protocol</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">recon [target]</div>
+            <p class="cmd-desc">Quick multi-source recon</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">exec [command]</div>
+            <p class="cmd-desc">Safe shell (allowlisted)</p>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-code">status</div>
+            <p class="cmd-desc">Full system diagnostics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA -->
+    <section>
+      <div class="wrap">
+        <div class="section-tag reveal">Data Sources</div>
+        <h2 class="reveal">WHERE THE DATA<br />COMES FROM</h2>
+        <p class="reveal" style="margin-bottom: 2.5rem">
+          All free. No sign-ups. No keys.
+        </p>
+        <table class="data-table reveal">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>What It Provides</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OpenSky Network</td>
+              <td>
+                Live aircraft transponder data — positions, altitude, speed
+              </td>
+            </tr>
+            <tr>
+              <td>Finnish Digitraffic AIS</td>
+              <td>Real vessel positions — Baltic Sea &amp; global</td>
+            </tr>
+            <tr>
+              <td>CelesTrak</td>
+              <td>Satellite TLE orbital elements — Starlink, GPS, military</td>
+            </tr>
+            <tr>
+              <td>CARTO</td>
+              <td>Dark map tiles for the 3D globe</td>
+            </tr>
+            <tr>
+              <td>Google News RSS</td>
+              <td>World news headlines — real-time</td>
+            </tr>
+            <tr>
+              <td>CISA KEV</td>
+              <td>CISA Known Exploited Vulnerabilities catalog</td>
+            </tr>
+            <tr>
+              <td>ip-api.com</td>
+              <td>IP geolocation &amp; ASN data</td>
+            </tr>
+            <tr>
+              <td>CoinGecko</td>
+              <td>Cryptocurrency market data</td>
+            </tr>
+            <tr>
+              <td>Open-Meteo</td>
+              <td>Weather forecasts — any city</td>
+            </tr>
+            <tr>
+              <td>GDELT</td>
+              <td>Geopolitical event database</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="privacy-box reveal">
+          <h3>YOUR DATA NEVER LEAVES YOUR MACHINE</h3>
+          <p>
+            XANA OS runs entirely local. The LLM runs via Ollama — no API calls,
+            no telemetry, no model vendor seeing your queries. Your conversation
+            history and vector database live in your filesystem. The only
+            outbound traffic is read-only requests to the public data sources
+            listed above.
+          </p>
+          <p
+            style="
+              font-family: var(--font-mono);
+              font-size: 0.8rem;
+              color: #888;
+            "
+          >
+            The only exception is the optional Windy webcams API — even then,
+            all you're sending is a location coordinate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREW -->
+    <section id="crew" class="profile-section">
+      <div class="wrap">
+        <div class="section-tag reveal">Built By</div>
+        <h2 class="reveal" style="color: var(--black) !important">
+          THE CREW<br />BEHIND THE<br />CONSOLE
+        </h2>
+
+        <div class="profile-mega-card reveal">
+          <div class="profile-left">
+            <div>
+              <div class="profile-avatar-big">
+                <span class="avatar-inner">SH</span>
+              </div>
+              <div class="profile-name-big">SRIHARI</div>
+              <div class="profile-handle">@sriharideveloper</div>
+              <div class="profile-role-tag">
+                Builder &middot; Architect &middot; Operator
+              </div>
+            </div>
+            <div>
+              <div class="profile-links-stack">
+                <a
+                  href="https://github.com/sriharideveloper"
+                  class="profile-link-btn link-gh"
+                  target="_blank"
+                  >GitHub</a
+                >
+                <a
+                  href="https://www.linkedin.com/in/sriharideveloper"
+                  class="profile-link-btn link-li"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="profile-right">
+            <p class="profile-bio-big">
+              Built XANA OS from scratch. Obsessed with local-first AI,
+              intelligence tooling, and the idea that you shouldn't need a cloud
+              subscription to have a personal ops room. If it runs on your
+              machine without phoning home — it's probably something Srihari
+              would build.
+            </p>
+            <div class="profile-tag-grid">
+              <span class="p-tag">Local AI</span>
+              <span class="p-tag">OSINT</span>
+              <span class="p-tag">Vector DBs</span>
+              <span class="p-tag">Python</span>
+              <span class="p-tag">Streamlit</span>
+              <span class="p-tag">Open Source</span>
+              <span class="p-tag">Privacy Tech</span>
+              <span class="p-tag">LLMs</span>
+              <span class="p-tag">ChromaDB</span>
+              <span class="p-tag">Autonomous Agents</span>
+            </div>
+            <div class="xana-built-badge">CREATOR OF XANA OS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVINA -->
+    <section class="avina-section">
+      <div class="wrap">
+        <div
+          class="section-tag reveal"
+          style="
+            background: var(--pink) !important;
+            color: var(--white) !important;
+          "
+        >
+          Future of AI
+        </div>
+        <h2 class="reveal" style="color: var(--white) !important">
+          SHOUTOUT TO<br />THE FUTURE
+        </h2>
+        <p class="reveal" style="max-width: 600px">
+          Two different visions. One shared belief — AI should serve humans, not
+          the other way around.
+        </p>
+
+        <div class="avina-card reveal">
+          <div class="avina-card-top">
+            <span style="font-size: 1.4rem">&#x1F9E0;</span>
+            <div class="avina-card-label">
+              EMPATHETIC AI &middot; NEXT GENERATION
+            </div>
+          </div>
+          <div class="avina-card-body">
+            <div class="avina-name">AVINA</div>
+            <div class="avina-tagline">// The Future of Empathetic AI</div>
+            <p class="avina-desc">
+              While XANA OS is your ops room for intelligence and memory,
+              <strong style="color: var(--pink)">Avina</strong> is building
+              something fundamentally different — AI that doesn't just respond,
+              but genuinely understands. Context-aware, human-centered, and
+              built with empathy at its core. This is where AI goes next: beyond
+              answers, into understanding.
+            </p>
+            <p class="avina-desc">
+              If XANA OS is the mind — Avina is the heart. Check it out.
+            </p>
+            <a href="https://avina.dev" class="avina-btn" target="_blank"
+              >Explore avina.dev</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap">
+        <div class="footer-logo">XANA OS</div>
+        <div class="footer-sub">
+          Prometheus &middot; Personal Intelligence Platform &middot; MIT
+          License
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/sriharideveloper/xanaops">GitHub</a>
+          <a href="https://www.linkedin.com/in/sriharideveloper">LinkedIn</a>
+          <a href="https://avina.dev">avina.dev</a>
+          <a href="https://ollama.com">Ollama</a>
+          <a href="#install">Quick Start</a>
+        </div>
+        <div class="footer-copy">
+          <span>ALL SYSTEMS NOMINAL</span> &middot; BUILT FOR AUTONOMY &middot;
+          YOUR DATA STAYS YOURS
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

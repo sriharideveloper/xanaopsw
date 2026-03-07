@@ -349,7 +349,7 @@ header {
   font-size: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #555;
+  color: #888;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
@@ -702,6 +702,7 @@ section:nth-child(even) p {
   border: 4px solid var(--black);
   padding: 1rem;
   background: var(--lime);
+  color: var(--black);
   box-shadow: var(--shadow);
   position: relative;
 }
@@ -912,7 +913,7 @@ section:nth-child(even) .flow-num {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #999;
+  color: #666;
   margin-bottom: 0.5rem;
 }
 .module-name {
@@ -950,8 +951,8 @@ section:nth-child(even) .flow-num {
   background: rgba(200, 255, 0, 0.15);
 }
 .badge-db {
-  border-color: #aaa;
-  color: #888;
+  border-color: #888;
+  color: #666;
 }
 .module-card:hover .badge-free {
   background: rgba(200, 255, 0, 0.4);
@@ -1065,7 +1066,7 @@ section:nth-child(even) .step-num-big {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #999;
+  color: #666;
 }
 .stack-name {
   font-family: var(--font-display);
@@ -1114,10 +1115,10 @@ section:nth-child(even) .step-num-big {
   border: 2px solid var(--black);
 }
 .tier-card:nth-child(2) .tier-hw {
-  color: #888;
+  color: #aaa;
 }
 .tier-card:nth-child(2) .tier-k {
-  color: #777;
+  color: #aaa;
 }
 .tier-card:hover:not(:nth-child(2)) {
   background: var(--yellow);
@@ -1235,6 +1236,7 @@ section:nth-child(even) .step-num-big {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--black);
+  background: var(--white);
   transition: var(--transition-snap);
 }
 .data-table tr:hover td {
@@ -1614,7 +1616,7 @@ footer {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.25em;
-  color: #666;
+  color: #999;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
 }
@@ -1651,7 +1653,7 @@ footer {
 .footer-copy {
   font-family: var(--font-mono);
   font-size: 0.58rem;
-  color: #555;
+  color: #888;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1774,6 +1776,19 @@ footer {
   overflow: hidden;
   border-top: 4px solid var(--yellow);
   position: relative;
+}
+.orb-gallery-section h2 {
+  color: var(--white);
+}
+.orb-gallery-section p {
+  color: #ccc;
+}
+.orb-gallery-section .section-tag {
+  background: var(--yellow);
+  color: var(--black);
+}
+.orb-gallery-section .section-tag::after {
+  background: var(--yellow);
 }
 .orb-gallery-section::before {
   content: "";

@@ -660,6 +660,9 @@ section:nth-child(even) h3 {
 section:nth-child(even) p {
   color: #ccc;
 }
+section:nth-child(even) p.highlight-box {
+  color: var(--black);
+}
 
 /* ── SCROLL REVEAL ── */
 .reveal {
